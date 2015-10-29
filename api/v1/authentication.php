@@ -69,11 +69,13 @@ $app->get('/projects', function() use ($app) {
 		$response["error"] = false;
 	    $response["projects"] = array();
 	
-	
+		
+		
 		while($row = $result->fetch_assoc()){
-		    $test[] = $row; 
+		    $test = $row; 
 			array_push($response["projects"], $test);
 		}	
+		
 		echoResponse(200, $response);
 	} else {
 		$response["true"] = false;
@@ -82,6 +84,31 @@ $app->get('/projects', function() use ($app) {
 	}	
 		
 });
+
+
+$app->post('/projects', function() use ($app) {
+	$response = array();
+    $db = new DbHandler();
+	
+	$r = json_decode($app->request->getBody());
+	/*
+    $tabble_name = "projects";
+    $column_names = array('phone', 'name', 'email', 'password', 'api_key', 'city', 'address');
+    $result = $db->insertIntoTable($r->customer, $column_names, $tabble_name);
+	*/
+	echoResponse(200, $r);
+	/*
+	if ($sessionName != 'Guest' &&  $sessionID != NULL) {
+		
+		
+	} else {
+		$response["true"] = false;
+	    $response["auth"] = 'Access denied';
+		echoResponse(401, $response);
+	}		
+	*/
+});
+
 
 
 $app->get('/projects/:id', function($proj_id) {
@@ -97,9 +124,9 @@ $app->get('/projects/:id', function($proj_id) {
 	
 		$response["error"] = false;
 		$response["proj_id"] = $proj_id;
-	    $response["projects"] = array();
+	    $response["projects"] = $result->fetch_assoc();
 	
-		array_push($response["projects"], $result->fetch_assoc());	
+		//array_push($response["projects"], $result->fetch_assoc());	
 		
 		echoResponse(200, $response);	
 	} else {
@@ -188,7 +215,8 @@ $app->post('/signUp', function() use ($app) {
             $response["status"] = "success";
             $response["message"] = "User account created successfully";
             $response["uid"] = $result;
-			/*
+		/*
+			// Start session of user after signup
 		    if (!isset($_SESSION)) {
                 session_start();
             }
@@ -196,7 +224,7 @@ $app->post('/signUp', function() use ($app) {
             $_SESSION['phone'] = $phone;
             $_SESSION['name'] = $name;
             $_SESSION['email'] = $email;
-			*/
+		*/
             echoResponse(200, $response);
         } else {
             $response["status"] = "error";

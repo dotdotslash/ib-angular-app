@@ -1,0 +1,230 @@
+<div>
+	<div class="row">
+		<div class="col-md-6">
+		    <h2>{{project.project_name}}</h2>
+			<h3>{{project.client}}</h3>
+		</div>
+	  	<div class="col-md-6 btn-section">
+	    	<a ng-href="#/projects/" class="btn btn-lg">Back</a>
+			<a ng-href="#/projects/edit/{{project.id}}" class="btn btn-primary btn-lg btn--proj-strt">Edit</a>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<dl>
+				<dt>Response Due</dt>
+				<dd>{{project.response_due}}</dd>
+			</dl>
+      
+		</div>
+		<div class="col-sm-3">
+			<dl>
+				<dt>Opportunity Size</dt>
+				<dd>{{project.opportunity_size}}</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			<h3>Details</h3>
+		</div>
+	</div>	
+	
+	<div class="row">
+		<div class="col-sm-9">
+			<dl>
+				<dt>Document to deliver</dt>
+				<dd>{{project.proposal_format}}</dd>
+			</dl>
+		</div>
+	</div>		
+	<div class="row">
+		<div class="col-sm-3">
+			<dl>
+				<dt>Request Received</dt>
+				<dd>{{project.request_received}}</dd>
+			</dl>
+		</div>
+		<div class="col-sm-3">
+			<dl>
+				<dt>Lead Source</dt>
+				<dd>{{project.lead_source}}</dd>
+			</dl>
+		</div>
+	
+		<div class="col-sm-3">
+			<dl>
+				<dt>Client Contact</dt>
+				<dd>{{project.client_contact}}</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<dl>
+				<dt>Job Number</dt>
+				<dd>{{project.job_number}}</dd>
+			</dl>
+		</div>
+		<div class="col-sm-3">
+			<dl>
+				<dt>Competitive</dt>
+				<dd>{{project.competitive}}</dd>
+			</dl>
+		</div>
+		<div class="col-sm-3">
+			<dl>
+				<dt>Final Decision Maker</dt>
+				<dd>{{project.final_decision_maker}}</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row">	
+		<div class="col-sm-3">
+			<dl>
+				<dt>Kickoff Date</dt>
+				<dd>{{project.start_date}}</dd>
+			</dl>
+		</div>
+		<div class="col-sm-3">
+			<dl>
+				<dt>Completion Date</dt>
+				<dd>{{project.completion_date}}</dd>
+			</dl>
+		</div>
+		<div class="col-sm-3">
+			<dl>
+				<dt>Timeline Driver</dt>
+				<dd>{{project.timeline_driver}}</dd>
+			</dl>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-sm-6">
+			
+			<h3>Background</h3>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+        	<h4>What does the client hope to achieve with this work?</h4>
+    		<p>{{project.project_goal}}</p>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>What is the reason for the project? Why now?</h4>
+			<p>{{project.project_reason}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>What will make this project a success?</h4>
+			<p>{{project.project_success_marker}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>Who will use what we deliver?</h4>
+			<p>{{project.project_user}}</p>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>What inputs / fundamental elements will the client provide?</strong></h4>
+			<ul>
+				<li ng-if="project.c_el_business_strategy">Business Strategy</li>
+				<li ng-if="project.c_el_research">Customer Research</li>
+				<li ng-if="project.c_el_roadmap">Product or service roadmap</li>
+				<li ng-if="project.c_el_brand_strat">Brand strategy</li>
+				<li ng-if="project.c_el_touchpoint">Touchpoint priorities</li>
+				<li ng-if="project.c_el_guidelines">Brand and UX guidelines</li>
+				<li ng-if="project.c_el_go_to_market">Go-to-market plan</li>
+				<li ng-if="project.c_el_channel_priorities">Channel priorities</li>
+			</ul>
+		</div>	
+
+	</div>		
+	<div class="row">
+		<div class="col-sm-12">
+		
+			<h3>Services</h3>
+			<h4>What is the primary service should we provide this client?</h4>
+			<p>{{project.primary_service}}</p>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h4>What additional services should we consider?</h4>
+			<ul>
+				<li ng-if="project.serv_research">Research &amp; Analytics</li>
+				<li ng-if="project.serv_b_intelligence">Brand Intelligence</li>
+				<li ng-if="project.serv_b_valuation">Brand Valuation</li>
+				<li ng-if="project.serv_ex_valuation">Experience Valuation</li>
+				<li ng-if="project.serv_definition">Brand Definition</li>
+				<li ng-if="project.serv_strength_mgmt">Brand Strength Management</li>
+				<li ng-if="project.serv_architecture">Brand Architecture</li>
+				<li ng-if="project.serv_ex_strategy">Experience Strategy</li>
+				<li ng-if="project.serv_ino_strategy">Innovation Strategy</li>
+				<li ng-if="project.serv_naming">Naming</li>
+				<li ng-if="project.serv_citizenship">Corporate Citizenship</li>
+				<li ng-if="project.serv_ex_design">Experience Design</li>
+				<li ng-if="project.serv_id_design">Identity Design</li>
+				<li ng-if="project.serv_environment">Retail &amp; Environments</li>
+				<li ng-if="project.serv_packaging">Consumer Packaging</li>
+				<li ng-if="project.serv_ux">User Experience</li>
+				<li ng-if="project.serv_servdesign">Service Design</li>
+				<li ng-if="project.serv_messaging">Messaging</li>
+				<li ng-if="project.serv_voice">Voice</li>
+				<li ng-if="project.serv_content_strat">Content strategy</li>
+				<li ng-if="project.serv_content_create">Content creation</li>
+				<li ng-if="project.serv_gtm">Go-to-Market Strategy</li>
+				<li ng-if="project.serv_mgmt_platform">Brand Mgmt Platforms</li>
+				<li ng-if="project.serv_implementation">Implementation</li>
+				<li ng-if="project.serv_internal_engage">Internal Engagement</li>
+				<li ng-if="project.serv_m_capdev">Marketing Cap. Dev.</li>
+				<li ng-if="project.serv_ux_capdev">UX Cap. Dev.</li>
+			</ul>
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>Team</h3>
+			<p>Who will lead this effort and how should they be supported?</p>
+			<dl>
+				<dt>Client service lead</dt>
+				<dd>{{project.ib_client_lead}}</dd>
+				
+				<dt>Content lead of SCP</dt>
+				<dd>{{project.ib_content_lead}}</dd>
+				
+				<dt>Executive sponsor</dt>
+				<dd>{{project.ib_sponsor}}</dd>
+				
+				<dt>Extended team</dt>
+				<dd>{{project.ib_team}}</dd>
+				
+				<dt>Inter office team</dt>
+				<dd>{{project.ib_office_team}}</dd>
+			</dl>
+			
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>IB Next steps</h3>
+			<dl>
+				<dt>Major Dates</dt>
+				<dd>{{project.ib_major_dates}}</dd>
+				
+				<dt>Industry background</dt>
+				<dd>{{project.ib_industry}}</dd>
+				
+				<dt>Case Studies / POV details</dt>
+				<dd>{{project.ib_case_studies}}</dd>
+
+			</dl>
+		</div>	
+	</div>					
+</div>
