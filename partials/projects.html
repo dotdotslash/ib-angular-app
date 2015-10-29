@@ -652,6 +652,130 @@
 				</div>	
 			</div>
 				
+			<div class="accordian-container--5">
+				<div class="row">
+					<div class="col-sm-12">
+						<h3>Team</h3>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Client service lead</label>
+				            <input type="text" class="form-control" name="ib_client_lead"
+				                   ng-model="project.ib_client_lead" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_client_lead.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_client_lead.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>	
+						<dl class="form-output ng-hide">
+							<dt>Client service lead</dt>
+							<dd>{{project.ib_client_lead}}</dd>
+						</dl>
+					</div>	
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Content lead of SCP</label>
+				            <input type="text" class="form-control" name="ib_content_lead"
+				                   ng-model="project.ib_content_lead" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_content_lead.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_content_lead.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Content lead of SCP</dt>
+							<dd>{{project.ib_content_lead}}</dd>
+						</dl>
+					</div>
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Executive sponsor</label>
+				            <input type="text" class="form-control" name="ib_sponsor"
+				                   ng-model="project.ib_sponsor" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_sponsor.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_sponsor.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Executive sponsor</dt>
+							<dd>{{project.ib_sponsor}}</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-9">
+				        <div class="form-group">
+				            <label>Extended team</label>
+				            <input type="text" class="form-control" name="ib_team"
+				                   ng-model="project.ib_team" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_team.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_team.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Extended team</dt>
+							<dd>{{project.ib_team}}</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-sm-9">
+				        <div class="form-group">
+				            <label>Inter office team</label>
+				            <input type="text" class="form-control" name="ib_office_team"
+				                   ng-model="project.ib_office_team" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_office_team.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_office_team.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Inter office team</dt>
+							<dd>{{project.ib_office_team}}</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			
+			<div class="accordian-container--6">
+				<div class="row">
+					<div class="col-sm-12">
+						<h3>IB Next steps</h3>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Major Dates</label>
+				            <input type="text" class="form-control" name="ib_major_dates"
+				                   ng-model="project.ib_major_dates" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_major_dates.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_major_dates.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+					</div>
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Industry background</label>
+				            <input type="text" class="form-control" name="ib_industry"
+				                   ng-model="project.ib_industry" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_industry.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_industry.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+					</div>
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Case Studies / POV details</label>
+				            <input type="text" class="form-control" name="ib_case_studies"
+				                   ng-model="project.ib_case_studies" ng-required="false"
+				                   ng-maxlength="150"/>
+				            <span class="error" ng-show="form.ib_case_studies.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.ib_case_studies.$error.maxlength">Must be at most 150 characters.</span>
+				        </div>
+					</div>
+				</div>	
+			</div>
+				
 			<div>
 				<div class="row">
 					<div class="col-sm-12 btn-section submit-section">

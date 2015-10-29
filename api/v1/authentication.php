@@ -139,6 +139,16 @@ $app->post('/projects', function() use ($app) {
 	$serv_internal_engage = $r->project->serv_internal_engage;
 	$serv_m_capdev = $r->project->serv_m_capdev;
 	$serv_ux_capdev = $r->project->serv_ux_capdev;	
+	
+	$ib_client_lead = $r->project->ib_client_lead;
+	$ib_content_lead = $r->project->ib_content_lead;
+	$ib_sponsor = $r->project->ib_sponsor;
+	$ib_team = $r->project->ib_team;
+	$ib_office_team = $r->project->ib_office_team;
+	
+	$ib_major_dates = $r->project->ib_major_dates;
+	$ib_industry = $r->project->ib_industry;
+	$ib_case_studies = $r->project->ib_case_studies;
 		
         $tabble_name = "projects";
         $column_names = array(
@@ -187,8 +197,17 @@ $app->post('/projects', function() use ($app) {
 		'serv_implementation',
 		'serv_internal_engage',
 		'serv_m_capdev',
-		'serv_ux_capdev'
-						
+		'serv_ux_capdev',
+			
+		'ib_client_lead',
+		'ib_content_lead',
+		'ib_sponsor',
+		'ib_team',
+		'ib_office_team',
+		
+		'ib_major_dates',
+		'ib_industry',
+		'ib_case_studies'				
 		);
         
 		$result = $db->insertIntoTable($r->project, $column_names, $tabble_name);
