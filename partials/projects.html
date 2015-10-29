@@ -1,0 +1,672 @@
+<div>
+
+	<div class="row header">
+		<div class="col-md-6">
+		    <h2>{{page_title}}</h2>
+			<h3>{{page_subtitle}}</h3>
+		</div>
+	  	<div class="col-md-6 btn-section">
+	    	<a ng-href="#/projects/" class="btn btn-lg">Cancel</a>
+		</div>	
+	</div>
+	
+    <form name="form" role="form" novalidate class="ng-scope ng-invalid ng-invalid-required ng-dirty">
+
+    	<div class="form-body">
+			<div class="accordian-container--1">
+				<div class="row">
+					<div class="col-sm-6">
+			            <div class="form-group">
+			                <label>Client</label><span>*</span>
+			                <input type="text" class="form-control" name="client"
+			                       ng-model="project.client" ng-required="true"
+								   placeholder="Add Client name"
+			                       ng-maxlength="60"/>
+			                <span class="error" ng-show="form.client.$error.minlength">Must be at least  characters.</span>
+			                <span class="error" ng-show="form.client.$error.maxlength">Must be at most 60 characters.</span>
+			            </div>
+						
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-sm-6">
+			            <div class="form-group">
+			                <label>Project</label><span>*</span>              
+			                <input type="text" class="form-control" name="project_name"
+			                       ng-model="project.project_name" ng-required="true"
+								   placeholder="Add Project name"
+			                       ng-maxlength="150"/>
+			                <span class="error" ng-show="form.project_name.$error.minlength">Must be at least characters.</span>
+			                <span class="error" ng-show="form.project_name.$error.maxlength">Must be at most 150 characters.</span>
+			            </div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-sm-3">
+			            <div class="form-group" >
+			                <label>Response Due</label><span>*</span>
+			                <input type="text" class="form-control" name="response_due" ui-date="response_dueDateOptions"
+								placeholder="Required" ui-date-format="yy-mm-dd" 
+			                       ng-model="project.response_due" ng-required="true"/>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Response Due</dt>
+							<dd>{{project.response_due}}</dd>
+						</dl>
+					</div>
+					<div class="col-sm-3">
+			            <div class="form-group">
+			                <label>Opportunity Size</label>
+			                <input type="text" class="form-control" name="opportunity_size"
+			                       ng-model="project.opportunity_size" ng-required="false"
+								   placeholder="Opportunity Size"
+			                       ng-maxlength="60"/>
+			                <span class="error" ng-show="form.opportunity_size.$error.minlength">Must be at least  characters.</span>
+			                <span class="error" ng-show="form.opportunity_size.$error.maxlength">Must be at most 120 characters.</span>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Opportunity Size</dt>
+							<dd>{{project.opportunity_size}}</dd>
+						</dl>
+					</div>
+				</div>
+			
+			</div>	
+			
+			<div class="accordian-container--2 ">
+				<div class="row">
+					<div class="col-sm-3">
+						<h3>Details</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-9">
+			            <div class="form-group">
+			                <label>Document to deliver</label>
+			                <input type="text" class="form-control" name="proposal_format"
+			                       ng-model="project.proposal_format" ng-required="false"
+			                       ng-maxlength="60"/>
+			                <span class="error" ng-show="form.proposal_format.$error.minlength">Must be at least  characters.</span>
+			                <span class="error" ng-show="form.proposal_format.$error.maxlength">Must be at most 120 characters.</span>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Document to deliver</dt>
+							<dd>{{project.proposal_format}}</dd>
+						</dl>
+					</div>
+					
+				</div>
+						
+				<div class="row">
+					<div class="col-sm-3">
+			            <div class="form-group">
+			                <label>Request Received</label><span>*</span>
+			                <input type="text" class="form-control" name="request_received" ui-date="request_receivedDateOptions" ui-date-format="yy-mm-dd" 
+			                       ng-model="project.request_received" ng-required="true"/>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Request Received</dt>
+							<dd>{{project.request_received}}</dd>
+						</dl>
+					</div>
+					<div class="col-sm-3">
+			            <div class="form-group">
+			                <label>Lead Source</label><span>*</span>
+			                <input type="text" class="form-control" name="lead_source"
+			                       ng-model="project.lead_source" ng-required="true"
+			                       ng-maxlength="60"/>
+			                <span class="error" ng-show="form.lead_source.$error.minlength">Must be at least  characters.</span>
+			                <span class="error" ng-show="form.lead_source.$error.maxlength">Must be at most 60 characters.</span>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Lead Source</dt>
+							<dd>{{project.lead_source}}</dd>
+						</dl>
+					</div>
+					
+					<div class="col-sm-3">
+			            <div class="form-group">
+			                <label>Client Contact</label><span>*</span>
+			                <input type="text" class="form-control" name="client_contact"
+			                       ng-model="project.client_contact" ng-required="true"
+			                       ng-maxlength="60"/>
+			                <span class="error" ng-show="form.client_contact.$error.minlength">Must be at least  characters.</span>
+			                <span class="error" ng-show="form.client_contact.$error.maxlength">Must be at most 60 characters.</span>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Client Contact</dt>
+							<dd>{{project.client_contact}}</dd>
+						</dl>
+					</div>
+							
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Kickoff Date</label><span>*</span>
+				            <input type="text" class="form-control" name="start_date" ui-date="start_dateDateOptions" ui-date-format="yy-mm-dd" 
+				                   ng-model="project.start_date" ng-required="true"/>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Kickoff Date</dt>
+							<dd>{{project.start_date}}</dd>
+						</dl>
+					</div>
+					<div class="col-sm-3">
+			            <div class="form-group">
+			                <label>Job Number</label>
+			                <input type="text" class="form-control" name="job_number"
+			                       ng-model="project.job_number" ng-required="false"
+			                       ng-maxlength="60"/>
+			                <span class="error" ng-show="form.job_number.$error.minlength">Must be at least  characters.</span>
+			                <span class="error" ng-show="form.job_number.$error.maxlength">Must be at most 10 characters.</span>
+			            </div>
+						<dl class="form-output ng-hide">
+							<dt>Job Number</dt>
+							<dd>{{project.job_number}}</dd>
+						</dl>
+					</div>
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Competitive</label>
+				            <input type="text" class="form-control" name="competitive"
+				                   ng-model="project.competitive" ng-required="false"
+				                   ng-maxlength="60"/>
+				            <span class="error" ng-show="form.competitive.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.competitive.$error.maxlength">Must be at most 120 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Competitive</dt>
+							<dd>{{project.competitive}}</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Final Decision Maker</label>
+				            <input type="text" class="form-control" name="final_decision_maker"
+				                   ng-model="project.final_decision_maker" ng-required="false"
+				                   ng-maxlength="60"/>
+				            <span class="error" ng-show="form.final_decision_maker.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.final_decision_maker.$error.maxlength">Must be at most 60 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Final Decision Maker</dt>
+							<dd>{{project.final_decision_maker}}</dd>
+						</dl>
+					</div>	
+					
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Completion Date</label>
+				            <input type="text" class="form-control" name="completion_date" ui-date="completion_dateDateOptions" ui-date-format="yy-mm-dd" 
+				                   ng-model="project.completion_date" ng-required="false"/>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Completion Date</dt>
+							<dd>{{project.completion_date}}</dd>
+						</dl>
+					</div>
+				
+					<div class="col-sm-3">
+				        <div class="form-group">
+				            <label>Timeline Driver</label>
+				            <input type="text" class="form-control" name="timeline_driver"
+				                   ng-model="project.timeline_driver" ng-required="false"
+				                   ng-maxlength="60"/>
+				            <span class="error" ng-show="form.timeline_driver.$error.minlength">Must be at least  characters.</span>
+				            <span class="error" ng-show="form.timeline_driver.$error.maxlength">Must be at most 60 characters.</span>
+				        </div>
+						<dl class="form-output ng-hide">
+							<dt>Timeline Driver</dt>
+							<dd>{{project.timeline_driver}}</dd>
+						</dl>
+					</div>
+				</div>	
+			</div>	  	
+			
+			<div class="accordian-container--3">
+				<div class="row">
+					<div class="col-sm-12">
+						<h3>Background</h3>
+					</div>	
+				</div>
+				<div class="row">
+		           <div class="form-group">
+						<div class="col-sm-3">
+							<label>What does the client hope to achieve with this work?<span>*</span></label>
+						</div>	
+						<div class="col-sm-6">
+			                <textarea class="form-control" name="project_goal"
+			                       ng-model="project.project_goal" ng-required="true">
+							</textarea>
+				        </div>
+					</div>
+					<div class="col-sm-9 form-output ng-hide">	
+						<dl>
+							<dt>What does the client hope to achieve with this work?</dt>
+							<dd>{{project.project_goal}}</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row">
+				    <div class="form-group">
+						<div class="col-sm-3">
+				            <label>What is the reason for the project? Why now?<span>*</span></label>
+						</div>
+						<div class="col-sm-6">
+				            <textarea  class="form-control" name="project_reason"
+				                   ng-model="project.project_reason" ng-required="true">
+							</textarea>
+						</div>
+					</div>
+					<div class="col-sm-9 form-output ng-hide">		
+						<dl>
+							<dt>What is the reason for the project? Why now?</dt>
+							<dd>{{project.project_reason}}</dd>
+						</dl>	
+				    </div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-3">	
+				            <label>What will make this project a success?<span>*</span></label>
+						</div>	
+						<div class="col-sm-6">
+				        	<textarea class="form-control" name="project_success_marker"
+				                   ng-model="project.project_success_marker" ng-required="true">
+							</textarea>
+						</div>
+					</div>
+					<div class="col-sm-9 form-output ng-hide">		
+						<dl>
+							<dt>What is the reason for the project? Why now?</dt>
+							<dd>{{project.project_success_marker}}</dd>
+						</dl>
+			        </div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-3">
+				            <label>Who will use what we deliver?<span>*</span></label>
+						</div>	
+						<div class="col-sm-6">	
+							<textarea class="form-control" name="project_user"
+			                   ng-model="project.project_user" ng-required="true">
+							</textarea>
+						</div>
+					</div>
+					<div class="col-sm-9 form-output ng-hide">		
+						<dl>
+							<dt>Who will use what we deliver?</dt>
+							<dd>{{project.project_user}}</dd>
+						</dl>
+			        </div>
+				</div>	
+				
+				<div class="row">
+					<div class="col-sm-9">
+						<h4>What inputs / fundamental elements will the client provide?</h4>
+						<ul class="form-output ng-hide">
+							<li ng-if="project.c_el_business_strategy">Business Strategy</li>
+							<li ng-if="project.c_el_research">Customer Research</li>
+							<li ng-if="project.c_el_roadmap">Product or service roadmap</li>
+							<li ng-if="project.c_el_brand_strat">Brand strategy</li>
+							<li ng-if="project.c_el_touchpoint">Touchpoint priorities</li>
+							<li ng-if="project.c_el_guidelines">Brand and UX guidelines</li>
+							<li ng-if="project.c_el_go_to_market">Go-to-market plan</li>
+							<li ng-if="project.c_el_channel_priorities">Channel priorities</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-3">
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="c_el_business_strategy" ng-model="project.c_el_business_strategy" ng-required="false"/>
+								Business Strategy
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="c_el_research" ng-model="project.c_el_research" ng-required="false"/>
+								Customer Research
+							</label>	   
+		                </div>
+					</div>
+	
+					<div class="col-sm-3">
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="c_el_roadmap" ng-model="project.c_el_roadmap" ng-required="false"/>
+								Product or service roadmap
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="c_el_brand_strat" ng-model="project.c_el_brand_strat" ng-required="false"/>
+								Brand strategy
+							</label>	   
+		                </div>
+					</div>
+					<div class="col-sm-3">
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="c_el_touchpoint" ng-model="project.c_el_touchpoint" ng-required="false"/>
+								Touchpoint priorities
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="c_el_guidelines" ng-model="project.c_el_guidelines" ng-required="false"/>
+								Brand and UX guidelines
+							</label>
+		                </div>
+					</div>
+					<div class="col-sm-3">
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="c_el_go_to_market" ng-model="project.c_el_go_to_market" ng-required="false"/>
+								Go-to-market plan
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="c_el_channel_priorities" ng-model="project.c_el_channel_priorities" ng-required="false"/>
+								Channel priorities
+		                	</label>
+						</div>
+					</div>
+				</div>		          
+			</div>	
+				
+			<div class="accordian-container--4">
+				<div class="row">
+					<div class="col-sm-9">
+						<h3>Services</h3>
+						<div class="form-group">
+							<label for="singleSelect">What is the primary service should we provide this client?</label><br>
+							    <select name="singleSelect" ng-model="project.primary_service">
+							      <option value="Research & Analytics">Insight -- Research & Analytics</option>
+							      <option value="Brand Intelligence">Insight -- Brand Intelligence</option>
+								  <option value="Brand Valuation">Insight -- Brand Valuation</option>
+								  <option value="Experience Valuation">Insight -- Experience Valuation</option>
+							  
+								  <option value="Brand Definition">Strategy -- Brand Definition</option>
+								  <option value="Brand Strength Management">Strategy -- Brand Strength Management</option>
+								  <option value="Brand Architecture">Strategy -- Brand Architecture</option>
+								  <option value="Experience Strategy">Strategy -- Experience Strategy</option>
+								  <option value="Innovation Strategy">Strategy -- Innovation Strategy</option>
+								  <option value="Naming">Strategy -- Naming</option>
+								  <option value="Corporate Citizenship">Strategy -- Corporate Citizenship</option>
+							  
+								  <option value="Experience Design">Experience -- Experience Design</option>
+								  <option value="Identity Design">Experience -- Identity Design</option>
+								  <option value="Retail & Environment">Experience -- Retail & Environment</option>
+								  <option value="Consumer Packaging">Experience -- Consumer Packaging</option>
+								  <option value="User Experience">Experience -- User Experience</option>
+								  <option value="Service Design">Experience -- Service Design</option>
+								  <option value="Messaging">Experience -- Messaging</option>
+								  <option value="Voice">Experience -- Voice</option>
+								  <option value="Content Strategy">Experience -- Content Strategy</option>
+								  <option value="Content Creation">Experience -- Content Creation</option>
+							  
+								  <option value="Go-to-Market Strategy">Activation -- Go-to-Market Strategy</option>
+								  <option value="Brand Management Platfor">Activation -- Brand Management Platform</option>
+								  <option value="Implementation">Activation -- Implementation</option>
+								  <option value="Internal Engagement">Activation -- Internal Engagement</option>
+								  <option value="Marketing Cap. Dev.">Activation -- Marketing Cap. Dev.</option>
+								  <option value="UX Cap. Dev.">Activation -- UX Cap. Dev.</option>
+							</select>
+						</div>
+						<div class="form-output ng-hide">
+							<h4>What is the primary service should we provide this client?</h4>		
+							{{project.primary_service}}
+				        </div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-sm-9">
+						<h4>What additional services should we consider?</h4>
+						<ul class="form-output ng-hide">
+							<li ng-if="project.serv_research">Research &amp; Analytics</li>
+							<li ng-if="project.serv_b_intelligence">Brand Intelligence</li>
+							<li ng-if="project.serv_b_valuation">Brand Valuation</li>
+							<li ng-if="project.serv_ex_valuation">Experience Valuation</li>
+							<li ng-if="project.serv_definition">Brand Definition</li>
+							<li ng-if="project.serv_strength_mgmt">Brand Strength Management</li>
+							<li ng-if="project.serv_architecture">Brand Architecture</li>
+							<li ng-if="project.serv_ex_strategy">Experience Strategy</li>
+							<li ng-if="project.serv_ino_strategy">Innovation Strategy</li>
+							<li ng-if="project.serv_naming">Naming</li>
+							<li ng-if="project.serv_citizenship">Corporate Citizenship</li>
+							<li ng-if="project.serv_ex_design">Experience Design</li>
+							<li ng-if="project.serv_id_design">Identity Design</li>
+							<li ng-if="project.serv_environment">Retail &amp; Environments</li>
+							<li ng-if="project.serv_packaging">Consumer Packaging</li>
+							<li ng-if="project.serv_ux">User Experience</li>
+							<li ng-if="project.serv_servdesign">Service Design</li>
+							<li ng-if="project.serv_messaging">Messaging</li>
+							<li ng-if="project.serv_voice">Voice</li>
+							<li ng-if="project.serv_content_strat">Content strategy</li>
+							<li ng-if="project.serv_content_create">Content creation</li>
+							<li ng-if="project.serv_gtm">Go-to-Market Strategy</li>
+							<li ng-if="project.serv_mgmt_platform">Brand Mgmt Platforms</li>
+							<li ng-if="project.serv_implementation">Implementation</li>
+							<li ng-if="project.serv_internal_engage">Internal Engagement</li>
+							<li ng-if="project.serv_m_capdev">Marketing Cap. Dev.</li>
+							<li ng-if="project.serv_ux_capdev">UX Cap. Dev.</li>
+						</ul>
+					</div>	
+				</div>
+				
+				<div class="row">
+					
+					<div class="col-sm-3">
+						<div class="form-group">
+							<h5>Insight</h5>
+						</div>	
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_research" ng-model="project.serv_research" ng-required="false"/>
+								Research &amp; Analytics
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                   		<input type="checkbox" name="serv_b_intelligence" ng-model="project.serv_b_intelligence" ng-required="false"/>
+								Brand Intelligence
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_b_valuation" ng-model="project.serv_b_valuation" ng-required="false"/>
+								Brand Valuation
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_ex_valuation" ng-model="project.serv_ex_valuation" ng-required="false"/>
+								Experience Valuation
+							</label>	   
+		                </div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="form-group">
+							<h5>Strategy</h5>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_definition" ng-model="project.serv_definition" ng-required="false"/>
+								Brand Definition
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_strength_mgmt" ng-model="project.serv_strength_mgmt" ng-required="false"/>
+								Brand Strength Management
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_architecture" ng-model="project.serv_architecture" ng-required="false"/>
+								Brand Architecture
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_ex_strategy" ng-model="project.serv_ex_strategy" ng-required="false"/>
+								Experience Strategy
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_ino_strategy" ng-model="project.serv_ino_strategy" ng-required="false"/>
+								Innovation Strategy
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_naming" ng-model="project.serv_naming" ng-required="false"/>
+								Naming
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_citizenship" ng-model="project.serv_citizenship" ng-required="false"/>
+								Corporate Citizenship
+							</label>	   
+		                </div>
+					</div>
+					
+					<div class="col-sm-3">
+						<div class="form-group">
+							<h5>Experience</h5>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_ex_design" ng-model="project.serv_ex_design" ng-required="false"/>
+								Experience Design
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_id_design" ng-model="project.serv_id_design" ng-required="false"/>
+								Identity Design
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_environment" ng-model="project.serv_environment" ng-required="false"/>
+								Retail &amp; Environments
+							</label>	   
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_packaging" ng-model="project.serv_packaging" ng-required="false"/>
+								Consumer Packaging
+							</label>	
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+		                    	<input type="checkbox" name="serv_ux" ng-model="project.serv_ux" ng-required="false"/>
+								User Experience
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_servdesign" ng-model="project.serv_servdesign" ng-required="false"/>
+								Service Design
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_messaging" ng-model="project.serv_messaging" ng-required="false"/>
+								Messaging
+							</label>	
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_voice" ng-model="project.serv_voice" ng-required="false"/>
+								Voice
+							</label>	
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_content_strat" ng-model="project.serv_content_strat" ng-required="false"/>
+								Content strategy
+							</label>	
+		                </div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_content_create" ng-model="project.serv_content_create" ng-required="false"/>
+								Content creation
+							</label>	
+		                </div>
+					</div>
+					
+					<div class="col-sm-3">
+						<div class="form-group">
+							<h5>Activation</h5>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_gtm" ng-model="project.serv_gtm" ng-required="false"/>
+								Go-to-Market Strategy
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_mgmt_platform" ng-model="project.serv_mgmt_platform" ng-required="false"/>
+								Brand Mgmt Platforms
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_implementation" ng-model="project.serv_implementation" ng-required="false"/>
+								Implementation
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_internal_engage" ng-model="project.serv_internal_engage" ng-required="false"/>
+								Internal Engagement
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_m_capdev" ng-model="project.serv_m_capdev" ng-required="false"/>
+								Marketing Cap. Dev.
+		                	</label>
+						</div>
+		                <div class="form-group checkbox">
+		                    <label>
+								<input type="checkbox" name="serv_ux_capdev" ng-model="project.serv_ux_capdev" ng-required="false"/>
+								UX Cap. Dev.
+		                	</label>
+						</div>
+					</div>
+					
+				</div>	
+			</div>
+				
+			<div>
+				<div class="row">
+					<div class="col-sm-12 btn-section submit-section">
+		        		<button type="button" class="btn btn-lg btn-cancel btn-default" ng-click="cancel()">Cancel</button>
+		        		<button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-lg" ng-click="submitProject(project)">Save Project</button>
+				
+					
+					</div>
+				</div>
+			</div>	
+			
+        </div>
+		
+		
+    </form>
+							
+							
+</div>

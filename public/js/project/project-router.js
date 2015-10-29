@@ -24,6 +24,16 @@ angular.module('myapp')
         }
       })
 	  
+	  .when('/projects/test', {
+        templateUrl: 'views/project/project-test.html',
+        controller: 'ProjectTestController',
+        resolve:{
+          resolvedProject: ['Project', function (Project) {
+            return Project.get();
+          }]
+        }
+      })
+	  
 	  .when('/projects/edit/:id', {
         templateUrl: 'views/project/project-add.html',
         controller: 'ProjectSaveController',

@@ -64,6 +64,45 @@ angular.module('myapp')
 			};
 		};
 }])
+angular.module('myapp')
+  .controller('ProjectTestController', ['$scope', '$location', 'resolvedProject', 'Project',
+    function ($scope, $location, resolvedProject, Project) {
+		
+		$scope.project = {};
+		
+		$scope.submitProject = function (project) {
+			console.log($scope.project);
+			
+	        Data.post('signUp', {
+	            project: project
+	        }).then(function (results) {
+	            Data.toast(results);
+				console.log($scope.signup);
+	            if (results.status == "success") {
+	                $location.path('dashboard');
+	            }
+	        });
+	    };
+		/*
+	    $scope.submitProject = function () {
+
+			if($scope.project.completion_date === ''){
+				$scope.project.completion_date = '1/1/1980';
+			}
+			console.log($scope.project);
+		
+		    Project.save($scope.project, function () {
+				console.log($scope.project);
+		    	$scope.project = Project.post();
+		    });
+		  
+		//	$location.path('/projects');
+		
+	    };
+		*/
+		
+}])		
+
 	
 angular.module('myapp')
   .controller('ProjectSaveController', ['$scope', '$routeParams', '$location', 'resolvedProject', 'Project',
@@ -284,7 +323,7 @@ angular.module('myapp')
 			$scope.btn_disabled = false;
 		}
 	});
-
+	
 	
 	$scope.sectionTwo = function() {
 		$scope.secondSection = true;
