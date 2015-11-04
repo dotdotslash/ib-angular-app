@@ -1,61 +1,6 @@
 <?php 
 
 
-$app->get('/search',function () use ($app) {
-	
-		$response = array();
-
-		$param_name = $app->request()->params('name');
-		$param_key = $app->request()->params('api_key');
-		$db = new DbHandler();
-
-		$session = $db->getSession();
-		
-		$sessionID = $session['uid'];
-		$sessionName = $session['name'];
-			
-		$api_key = $db->getOneRecord("SELECT api_key FROM user_auth WHERE api_key='$param_key' ");
-	    $user = $db->getOneRecord("SELECT name FROM user_auth WHERE name='$param_name' ");
-		
-		$credds = $app->credentials;
-		
-
-		if ($sessionName != 'Guest' &&  $sessionID != NULL) {
-			
-			$totalRequestLive = $app->request();
-		
-			$charset = $app->request->headers->get('Connection');
-			$giveHead = $app->request()->headers;
-		
-			$cookieMonster = $app->getCookie('foo');
-			
-			//var_dump($app);
-			
-	        $query = $app->request->get('query');
-			$params = $app->request()->params();
-			
-			
-			$response["authorized"] = true;
-			$response["sessionId"] = $sessionID;
-			$response["sessionName"] = $sessionName;
-			
-			$response["totalRequestLive"] = $totalRequestLive;
-			$response["head"] = $giveHead;
-			$response["charset"] = $charset;
-			$response["query"] = $query;
-			$response["results"] = $params;
-	        $response["cookieMonster"] = $cookieMonster;
-			
-			
-			echoResponse(200, $response);	
-		} else {
-			$response["authorized"] = false;
-			echoResponse(401, $response);	
-		}
-
- });
-
-
 $app->get('/projects', function() use ($app) {
 	$response = array();
     $db = new DbHandler();
@@ -85,6 +30,29 @@ $app->get('/projects', function() use ($app) {
 		
 });
 
+$app->delete('/projects/:id', function($proj_id) {
+	$response = array();
+    $db = new DbHandler();
+	
+	$session = $db->getSession();
+	$sessionID = $session['uid'];
+	$sessionName = $session['name'];
+	
+	if ($sessionName != 'Guest' &&  $sessionID != NULL) {
+	    $result = $db->removeProject($proj_id);
+	
+		$response["error"] = false;	
+        $response["status"] = "success";
+        $response["message"] = "Project deleted";
+		
+		echoResponse(200, $response);	
+	} else {
+		$response["error"] = true;
+	    $response["auth"] = 'Access denied';
+		echoResponse(401, $response);
+	}
+	
+});
 
 $app->post('/projects', function() use ($app) {
 	$response = array();
@@ -149,6 +117,8 @@ $app->post('/projects', function() use ($app) {
 	$ib_major_dates = $r->project->ib_major_dates;
 	$ib_industry = $r->project->ib_industry;
 	$ib_case_studies = $r->project->ib_case_studies;
+	
+	$submitter = $r->project->submitter;
 		
         $tabble_name = "projects";
         $column_names = array(
@@ -207,14 +177,157 @@ $app->post('/projects', function() use ($app) {
 		
 		'ib_major_dates',
 		'ib_industry',
-		'ib_case_studies'				
+		'ib_case_studies',
+		'submitter'				
 		);
         
 		$result = $db->insertIntoTable($r->project, $column_names, $tabble_name);
 		
         if ($result != NULL) {
             $response["status"] = "success";
-            $response["message"] = "User account created successfully";
+            $response["message"] = "Project successfully created";
+            $response["uid"] = $result;
+            echoResponse(200, $response);
+        } else {
+            $response["status"] = "error";
+            $response["message"] = "Failed to create project. Please try again";
+            echoResponse(201, $response);
+        }            
+
+});
+
+$app->put('/projects', function() use ($app) {
+	$response = array();
+	$r = json_decode($app->request->getBody());
+	$db = new DbHandler();
+	
+    $client = $r->project->client;
+    $project_name = $r->project->project_name;
+    $response_due = $r->project->response_due;
+    $opportunity_size = $r->project->opportunity_size;
+	
+	$lead_source = $r->project->lead_source;
+	$job_number = $r->project->job_number;
+	$proposal_format = $r->project->proposal_format;
+	$competitive = $r->project->competitive;
+	$final_decision_maker = $r->project->final_decision_maker;
+	$start_date = $r->project->start_date;
+	$completion_date = $r->project->completion_date;
+	$timeline_driver = $r->project->timeline_driver;
+	
+	$project_goal = $r->project->project_goal;
+	$project_reason = $r->project->project_reason;
+	$project_success_marker = $r->project->project_success_marker;
+	$project_user = $r->project->project_user;	
+		$c_el_business_strategy = $r->project->c_el_business_strategy;
+		$c_el_research = $r->project->c_el_research;
+		$c_el_roadmap = $r->project->c_el_roadmap;
+		$c_el_brand_strat = $r->project->c_el_brand_strat;
+		$c_el_touchpoint = $r->project->c_el_touchpoint;
+		$c_el_guidelines = $r->project->c_el_guidelines;
+		$c_el_go_to_market = $r->project->c_el_go_to_market;
+		$c_el_channel_priorities = $r->project->c_el_channel_priorities;
+		
+	$primary_service = $r->project->primary_service;
+		
+	$serv_research = $r->project->serv_research;
+	$serv_b_intelligence = $r->project->serv_b_intelligence;
+	$serv_b_valuation = $r->project->serv_b_valuation;
+	$serv_ex_valuation = $r->project->serv_ex_valuation;
+
+	$serv_definition = $r->project->serv_definition;
+	$serv_strength_mgmt = $r->project->serv_strength_mgmt;
+	$serv_architecture = $r->project->serv_architecture;
+	$serv_ex_strategy = $r->project->serv_ex_strategy;
+	$serv_ino_strategy = $r->project->serv_ino_strategy;
+	$serv_naming = $r->project->serv_naming;
+	$serv_citizenship = $r->project->serv_citizenship;
+
+	$serv_gtm = $r->project->serv_gtm;
+	$serv_mgmt_platform = $r->project->serv_mgmt_platform;
+	$serv_implementation = $r->project->serv_implementation;
+	$serv_internal_engage = $r->project->serv_internal_engage;
+	$serv_m_capdev = $r->project->serv_m_capdev;
+	$serv_ux_capdev = $r->project->serv_ux_capdev;	
+	
+	$ib_client_lead = $r->project->ib_client_lead;
+	$ib_content_lead = $r->project->ib_content_lead;
+	$ib_sponsor = $r->project->ib_sponsor;
+	$ib_team = $r->project->ib_team;
+	$ib_office_team = $r->project->ib_office_team;
+	
+	$ib_major_dates = $r->project->ib_major_dates;
+	$ib_industry = $r->project->ib_industry;
+	$ib_case_studies = $r->project->ib_case_studies;
+	
+	$submitter = $r->project->submitter;
+		
+        $tabble_name = "projects";
+        $column_names = array(
+			
+		'client', 'project_name', 'response_due', 'opportunity_size',
+		
+		'lead_source',
+		'job_number',
+		'proposal_format',
+		'competitive',
+		'final_decision_maker',
+		'start_date',
+		'completion_date',
+		'timeline_driver',
+		
+		'project_goal',
+		'project_reason',
+		'project_success_marker',
+		'project_user',
+			'c_el_business_strategy',
+			'c_el_research',
+			'c_el_roadmap',
+			'c_el_brand_strat',
+			'c_el_touchpoint',
+			'c_el_guidelines',
+			'c_el_go_to_market',
+			'c_el_channel_priorities',
+		
+		'primary_service',
+	
+		'serv_research',
+		'serv_b_intelligence',
+		'serv_b_valuation',
+		'serv_ex_valuation',
+
+		'serv_definition',
+		'serv_strength_mgmt',
+		'serv_architecture',
+		'serv_ex_strategy',
+		'serv_ino_strategy',
+		'serv_naming',
+		'serv_citizenship',
+
+		'serv_gtm',
+		'serv_mgmt_platform',
+		'serv_implementation',
+		'serv_internal_engage',
+		'serv_m_capdev',
+		'serv_ux_capdev',
+			
+		'ib_client_lead',
+		'ib_content_lead',
+		'ib_sponsor',
+		'ib_team',
+		'ib_office_team',
+		
+		'ib_major_dates',
+		'ib_industry',
+		'ib_case_studies',
+		'submitter'					
+		);
+        
+		$result = $db->insertIntoTable($r->project, $column_names, $tabble_name);
+		
+        if ($result != NULL) {
+            $response["status"] = "success";
+            $response["message"] = "Project successfully created";
             $response["uid"] = $result;
             echoResponse(200, $response);
         } else {

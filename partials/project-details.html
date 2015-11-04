@@ -1,26 +1,29 @@
 <div>
+	
+	<p><strong>User:</strong> {{user.name}} | <a ng-click="logout();">Logout</a></p>
+	
 	<div class="row">
 		<div class="col-md-6">
-		    <h2>{{project.project_name}}</h2>
-			<h3>{{project.client}}</h3>
+		    <h2>{{projects.project_name}}</h2>
+			<h3>{{projects.client}}</h3>
 		</div>
 	  	<div class="col-md-6 btn-section">
 	    	<a ng-href="#/projects/" class="btn btn-lg">Back</a>
-			<a ng-href="#/projects/edit/{{project.id}}" class="btn btn-primary btn-lg btn--proj-strt">Edit</a>
+			<a ng-href="#/projects/edit/{{projects.id}}" class="btn btn-primary btn-lg btn--proj-strt">Edit</a>
 		</div>	
 	</div>
 	<div class="row">
 		<div class="col-sm-3">
 			<dl>
 				<dt>Response Due</dt>
-				<dd>{{project.response_due}}</dd>
+				<dd>{{projects.response_due}}</dd>
 			</dl>
       
 		</div>
 		<div class="col-sm-3">
 			<dl>
 				<dt>Opportunity Size</dt>
-				<dd>{{project.opportunity_size}}</dd>
+				<dd>{{projects.opportunity_size}}</dd>
 			</dl>
 		</div>
 	</div>
@@ -35,7 +38,7 @@
 		<div class="col-sm-9">
 			<dl>
 				<dt>Document to deliver</dt>
-				<dd>{{project.proposal_format}}</dd>
+				<dd>{{projects.proposal_format}}</dd>
 			</dl>
 		</div>
 	</div>		
@@ -43,20 +46,20 @@
 		<div class="col-sm-3">
 			<dl>
 				<dt>Request Received</dt>
-				<dd>{{project.request_received}}</dd>
+				<dd>{{projects.request_received}}</dd>
 			</dl>
 		</div>
 		<div class="col-sm-3">
 			<dl>
 				<dt>Lead Source</dt>
-				<dd>{{project.lead_source}}</dd>
+				<dd>{{projects.lead_source}}</dd>
 			</dl>
 		</div>
 	
 		<div class="col-sm-3">
 			<dl>
 				<dt>Client Contact</dt>
-				<dd>{{project.client_contact}}</dd>
+				<dd>{{projects.client_contact}}</dd>
 			</dl>
 		</div>
 	</div>
@@ -64,19 +67,19 @@
 		<div class="col-sm-3">
 			<dl>
 				<dt>Job Number</dt>
-				<dd>{{project.job_number}}</dd>
+				<dd>{{projects.job_number}}</dd>
 			</dl>
 		</div>
 		<div class="col-sm-3">
 			<dl>
 				<dt>Competitive</dt>
-				<dd>{{project.competitive}}</dd>
+				<dd>{{projects.competitive}}</dd>
 			</dl>
 		</div>
 		<div class="col-sm-3">
 			<dl>
 				<dt>Final Decision Maker</dt>
-				<dd>{{project.final_decision_maker}}</dd>
+				<dd>{{projects.final_decision_maker}}</dd>
 			</dl>
 		</div>
 	</div>
@@ -84,19 +87,19 @@
 		<div class="col-sm-3">
 			<dl>
 				<dt>Kickoff Date</dt>
-				<dd>{{project.start_date}}</dd>
+				<dd>{{projects.start_date}}</dd>
 			</dl>
 		</div>
 		<div class="col-sm-3">
 			<dl>
 				<dt>Completion Date</dt>
-				<dd>{{project.completion_date}}</dd>
+				<dd>{{projects.completion_date}}</dd>
 			</dl>
 		</div>
 		<div class="col-sm-3">
 			<dl>
 				<dt>Timeline Driver</dt>
-				<dd>{{project.timeline_driver}}</dd>
+				<dd>{{projects.timeline_driver}}</dd>
 			</dl>
 		</div>
 	</div>	
@@ -109,25 +112,25 @@
 	<div class="row">
 		<div class="col-sm-6">
         	<h4>What does the client hope to achieve with this work?</h4>
-    		<p>{{project.project_goal}}</p>
+    		<p>{{projects.project_goal}}</p>
 		</div>	
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
 			<h4>What is the reason for the project? Why now?</h4>
-			<p>{{project.project_reason}}</p>
+			<p>{{projects.project_reason}}</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
 			<h4>What will make this project a success?</h4>
-			<p>{{project.project_success_marker}}</p>
+			<p>{{projects.project_success_marker}}</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
 			<h4>Who will use what we deliver?</h4>
-			<p>{{project.project_user}}</p>
+			<p>{{projects.project_user}}</p>
 		</div>
 	</div>	
 	<div class="row">
@@ -151,7 +154,7 @@
 		
 			<h3>Services</h3>
 			<h4>What is the primary service should we provide this client?</h4>
-			<p>{{project.primary_service}}</p>
+			<p>{{projects.primary_service}}</p>
 		</div>	
 	</div>
 	<div class="row">
@@ -194,19 +197,19 @@
 			<p>Who will lead this effort and how should they be supported?</p>
 			<dl>
 				<dt>Client service lead</dt>
-				<dd>{{project.ib_client_lead}}</dd>
+				<dd>{{projects.ib_client_lead}}</dd>
 				
 				<dt>Content lead of SCP</dt>
-				<dd>{{project.ib_content_lead}}</dd>
+				<dd>{{projects.ib_content_lead}}</dd>
 				
 				<dt>Executive sponsor</dt>
-				<dd>{{project.ib_sponsor}}</dd>
+				<dd>{{projects.ib_sponsor}}</dd>
 				
 				<dt>Extended team</dt>
-				<dd>{{project.ib_team}}</dd>
+				<dd>{{projects.ib_team}}</dd>
 				
 				<dt>Inter office team</dt>
-				<dd>{{project.ib_office_team}}</dd>
+				<dd>{{projects.ib_office_team}}</dd>
 			</dl>
 			
 		</div>	
@@ -216,13 +219,13 @@
 			<h3>IB Next steps</h3>
 			<dl>
 				<dt>Major Dates</dt>
-				<dd>{{project.ib_major_dates}}</dd>
+				<dd>{{projects.ib_major_dates}}</dd>
 				
 				<dt>Industry background</dt>
-				<dd>{{project.ib_industry}}</dd>
+				<dd>{{projects.ib_industry}}</dd>
 				
 				<dt>Case Studies / POV details</dt>
-				<dd>{{project.ib_case_studies}}</dd>
+				<dd>{{projects.ib_case_studies}}</dd>
 
 			</dl>
 		</div>	

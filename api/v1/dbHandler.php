@@ -45,6 +45,19 @@ class DbHandler {
             return NULL;
         }
     }
+	 
+    /**
+     * Remove single record
+     */
+    public function removeProject($proj_id) {
+		$stmt = $this->conn->prepare("DELETE FROM Projects WHERE id = $proj_id");
+	   	$stmt->execute();
+	    $tasks = $stmt->get_result();
+		$stmt->close();
+	    return $tasks;   
+    }
+	 
+	 
 	      
 public function getAllProjects() {
 	$stmt = $this->conn->prepare("SELECT * FROM Projects");
@@ -81,6 +94,7 @@ public function getSession(){
     }
     return $sess;
 }
+
 public function destroySession(){
     if (!isset($_SESSION)) {
     session_start();

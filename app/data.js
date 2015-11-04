@@ -27,7 +27,7 @@ app.factory("Data", ['$http', 'toaster',
         };
         obj.delete = function (q) {
             return $http.delete(serviceBase + q).then(function (results) {
-                return results.data;
+                return results;
             });
         };
 

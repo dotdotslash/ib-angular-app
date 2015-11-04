@@ -1,13 +1,13 @@
-var app = angular.module('myApp', ['ngRoute', 'ngAnimate', 'toaster']);
+var app = angular.module('myApp', ['ngRoute', 'ngAnimate', 'toaster','ui.date']);
 
 app.config(['$routeProvider',
   function ($routeProvider) {
         $routeProvider.
-        when('/login', {
-            title: 'Login',
-            templateUrl: 'partials/login.html',
-            controller: 'authCtrl'
-        })
+	        when('/login', {
+	            title: 'Login',
+	            templateUrl: 'partials/login.html',
+	            controller: 'authCtrl'
+	        })
             .when('/logout', {
                 title: 'Logout',
                 templateUrl: 'partials/login.html',
@@ -28,14 +28,31 @@ app.config(['$routeProvider',
                 templateUrl: 'partials/projects.html',
                 controller: 'projectCtrl'
             })
+            .when('/projects/add', {
+                title: 'Projects',
+                templateUrl: 'partials/project-add.html',
+                controller: 'projectCtrl'
+            })
+            .when('/projects/:id', {
+                title: 'Projects',
+                templateUrl: 'partials/project-details.html',
+                controller: 'projectCtrl'
+            })
+            .when('/projects/:id/edit', {
+                title: 'Projects',
+                templateUrl: 'partials/project-edit.html',
+                controller: 'projectCtrl'
+            })
+			/*
             .when('/', {
                 title: 'Login',
                 templateUrl: 'partials/login.html',
                 controller: 'authCtrl',
                 role: '0'
             })
+			*/
             .otherwise({
-                redirectTo: '/login'
+                redirectTo: '/projects'
             });
   }])
     .run(function ($rootScope, $location, Data) {
