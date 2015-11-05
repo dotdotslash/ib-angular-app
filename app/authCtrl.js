@@ -41,7 +41,9 @@ angular.module('myApp')
   .controller('projectCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', 'Data', 
     function ($scope, $rootScope, $routeParams, $location, $http, Data) {
 		
-		
+	    $scope.sortType     = 'id'; // set the default sort type
+		$scope.sortReverse  = false;  // set the default sort order
+		$scope.searchFish   = '';     // set the default search/filter term
 		
 		
 		$scope.dynomite_text = 'Next';
@@ -115,7 +117,6 @@ angular.module('myApp')
 		$scope.goForward = function () {
 			$scope.counter += 1;
 			console.log($scope.counter);
-			console.log($scope.projects);
 			$scope.counterSwitch($scope.counter);
 		 
 		};	
@@ -124,7 +125,6 @@ angular.module('myApp')
 			console.log('Counter: '+counter);			
 			switch(counter) {
 			    case 0:
-					console.log('sdfs');
 					$scope.secondSection = false;
 					$scope.accordnHide(1);
 					break;
@@ -132,10 +132,8 @@ angular.module('myApp')
 					$scope.dynomite_text = 'Next';
 					$scope.secondSection = true;
 					$scope.accordnShow(1);
-					console.log($scope.page_title);
-					console.log($scope.page_subtitle);
-					$scope.page_title = $scope.projects.client;	
-					$scope.page_subtitle = $scope.projects.project_name;
+					$scope.page_subtitle = $scope.projects.client;	
+					$scope.page_title = $scope.projects.project_name;
 					$scope.btn_disabled = true;
 			        break;
 			    case 2:

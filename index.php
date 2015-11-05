@@ -7,10 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Opportunity Tracker</title>
-  <link href="lib/bootstrap-css/css/bootstrap.css" rel="stylesheet">
+  <link href="lib/bootstrap-css/css/bootstrap.css" rel="stylesheet"/>
   <link href="lib/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
-  <link href="css/toaster.css" rel="stylesheet">
-  <link href="css/app.css" rel="stylesheet">
+  <link href="css/toaster.css" rel="stylesheet"/>
+  <link href="css/app.css" rel="stylesheet"/>
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  
 </head>
 <body ng-cloak="">
 			
@@ -18,7 +20,7 @@
 		<div class="container" ng-view></div>
       
     </body>
-  <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+  <toaster-container toaster-options="{'time-out': 1000}"></toaster-container>
   <!-- Libs -->
   
   <script src="lib/jquery/dist/jquery.js"></script>
